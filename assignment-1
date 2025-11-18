@@ -1,0 +1,443 @@
+# NAME       - RAJEEV KUMAR
+# ENROLLMENT - 0157AL231167
+# BATCH      - 5(MTF)
+# BATCH TIME - 10:30 - 12:10
+
+
+#Basic If–Else Problems:
+
+#question.1  
+n = int(input())
+
+if n > 0:
+    print("Positive")
+elif n < 0:
+    print("Negative")
+else:
+    print("Zero")
+
+
+#question.2
+n = int(input())
+
+if n % 2 == 0:
+    print("Even")
+else:
+    print("Odd")
+
+
+#question.3
+    year = int(input())
+
+if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+    print("Leap Year")
+else:
+    print("Not Leap Year")
+
+
+#question.4
+a = int(input())
+b = int(input())
+if a > b :
+    print (a)
+else :
+    print(b)
+
+
+#question.5
+    age = int(input())
+
+if age >= 18:
+    print("Eligible")
+else:
+    print("Not Eligible")
+
+#question.6
+    c = input()
+
+if c.lower() in "aeiou":
+    print("Vowel")
+else:
+    print("Consonant")
+
+#question.7
+    n = int(input())
+
+if n % 5 == 0:
+    print("Divisible")
+else:
+    print("Not Divisible")
+
+
+#question.8
+    n = int(input())
+
+if -9 <= n <= 9:
+    print("Single Digit")
+elif -99 <= n <= 99:
+    print("Two Digit")
+else:
+    print("More Than Two Digits")
+
+#question.9
+    marks = int(input())
+
+if marks >= 33:
+    print("Pass")
+else:
+    print("Fail")
+
+#question.10
+    n = int(input())
+
+if n % 3 == 0 and n % 7 == 0:
+    print("Yes")
+else:
+    print("No")
+
+
+
+#Ladder If & Nested If:
+
+#question.1
+a, b, c = map(int, input().split())
+
+if a > b and a > c:
+    print(a)
+elif b > c:
+    print(b)
+else:
+    print(c)
+
+#question.2
+    age = int(input())
+
+if age < 13:
+    print("Child")
+elif age <= 19:
+    print("Teenager")
+elif age <= 59:
+    print("Adult")
+else:
+    print("Senior")
+
+#question.3
+    m = int(input())
+
+if m >= 90:
+    print("A")
+elif m >= 75:
+    print("B")
+elif m >= 50:
+    print("C")
+elif m >= 35:
+    print("D")
+else:
+    print("Fail")
+
+#question.4
+    a, b, c = map(int, input().split())
+
+if a == b == c:
+    print("Equilateral")
+elif a == b or b == c or a == c:
+    print("Isosceles")
+else:
+    print("Scalene")
+
+#question.5
+    c = input()
+
+if c.isupper():
+    print("Uppercase")
+elif c.islower():
+    print("Lowercase")
+elif c.isdigit():
+    print("Digit")
+else:
+    print("Special Symbol")
+
+#question.6
+    units = int(input())
+
+if units <= 100:
+    bill = units * 5
+elif units <= 200:
+    bill = 100*5 + (units - 100)*7
+else:
+    bill = 100*5 + 100*7 + (units - 200)*10
+
+print(bill)
+
+#question.7
+a, b, c, d = map(int, input().split())
+
+max1 = a if a > b else b
+max2 = c if c > d else d
+
+print(max1 if max1 > max2 else max2)
+
+#question.8
+year = int(input())
+
+if year % 100 == 0:
+    print("Century Year")
+    if year % 400 == 0:
+        print("Leap Year")
+    else:
+        print("Not Leap Year")
+else:
+    print("Not Century Year")
+
+#question.9
+    bmi = float(input())
+
+if bmi < 18.5:
+    print("Underweight")
+elif bmi < 25:
+    print("Normal")
+elif bmi < 30:
+    print("Overweight")
+else:
+    print("Obese")
+
+#question.10
+    a, b, c = map(int, input().split())
+
+if a < b:
+    if a < c:
+        print(a)
+    else:
+        print(c)
+else:
+    if b < c:
+        print(b)
+    else:
+        print(c)
+
+
+#For Loop Problems:
+
+#question.1
+for n in range(100, 1000):
+    s = sum(int(d)**3 for d in str(n))
+    if s == n:
+        print(n)
+
+#question.2
+n = int(input())
+count = 0
+num = 2
+
+while count < n:
+    prime = True
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            prime = False
+            break
+    if prime:
+        print(num, end=" ")
+        count += 1
+    num += 1
+
+#question.3
+for i in range(1, 501):
+ if i % 3 == 0:
+        if sum(int(d) for d in str(i)) <= 10:
+            print(i)
+
+#question.4
+n = int(input())
+
+for i in range(1, n+1):
+    print("*" * (2*i - 1))
+
+#question.5
+    s = input().lower()
+letters = set()
+
+for c in s:
+    if c.isalpha():
+        letters.add(c)
+
+print("Pangram" if len(letters) == 26 else "Not Pangram")
+
+
+#question.6
+def is_prime(n):
+    if n < 2: return False
+    for i in range(2, int(n**0.5)+1):
+        if n % i == 0: return False
+    return True
+
+for n in range(2, 101):
+    if is_prime(n) and is_prime(n+2):
+        print(n, n+2)
+
+
+#question.7
+n = int(input())
+
+s = sum(int(d) for d in str(n))
+
+print("Harshad" if n % s == 0 else "Not Harshad")
+
+#question.8
+n = int(input())
+
+for i in range(n):
+    val = 1
+    for j in range(i+1):
+        print(val, end=" ")
+        val = val * (i - j) // (j + 1)
+    print()
+
+
+#question.9
+n = int(input())
+print(sum(i*i for i in range(1, n+1)))
+
+#question.10
+n = int(input())
+s = 0
+
+for d in str(n):
+    f = 1
+    for i in range(1, int(d)+1):
+        f *= i
+    s += f
+
+print("Strong Number" if s == n else "Not Strong Number")
+
+
+#While Loop Problems:
+
+#question.1
+n = int(input())
+
+rev = 0
+x = n
+while x:
+    rev = rev*10 + x%10
+    x //= 10
+
+prime = True
+for i in range(2, int(rev**0.5)+1):
+    if rev % i == 0:
+        prime = False
+
+print(rev, "Prime" if prime else "Not Prime")
+
+#question.2
+total = 0
+
+while total <= 100:
+    num = int(input())
+    total += sum(int(d) for d in str(num))
+
+print("Stopped. Sum exceeded 100.")
+
+#question.3
+n = input()
+
+if n[0] != '0' and '0' in n:
+    print("Duck Number")
+else:
+    print("Not Duck Number")
+
+#question.4
+    n = int(input())
+
+while n != 1 and n != 4:
+    n = sum(int(d)**2 for d in str(n))
+
+print("Happy" if n == 1 else "Not Happy")
+
+#question.5
+n = int(input())
+max_prime = -1
+
+while n % 2 == 0:
+    max_prime = 2
+    n //= 2
+
+i = 3
+while i*i <= n:
+    while n % i == 0:
+        max_prime = i
+        n //= i
+    i += 2
+
+if n > 2:
+    max_prime = n
+
+print(max_prime)
+
+#question.6
+
+while True:
+    s = input()
+    if s == s[::-1]:
+        print("Palindrome Entered:", s)
+        break
+
+
+#question.7
+    n = input()
+
+while len(n) > 1:
+    s = sum(int(d) for d in n)
+    n = str(s)
+
+print(n)
+
+
+#question.8
+n = int(input())
+
+while n != 1:
+    print(n, end=" ")
+    if n % 2 == 0:
+        n //= 2
+    else:
+        n = 3*n + 1
+print(1)
+
+#question.9
+n = int(input())
+sq = str(n*n)
+
+ok = False
+for i in range(1, len(sq)):
+    left = int(sq[:i])
+    right = int(sq[i:])
+    if left + right == n:
+        ok = True
+
+print("Kaprekar" if ok else "Not Kaprekar")
+
+
+#question.10
+balance = 1000
+
+while True:
+    print("\n1. Check Balance\n2. Deposit\n3. Withdraw\n4. Exit")
+    choice = int(input())
+
+    if choice == 1:
+        print("Balance:", balance)
+
+    elif choice == 2:
+        amt = int(input("Enter amount: "))
+        balance += amt
+
+    elif choice == 3:
+        amt = int(input("Enter amount: "))
+        if amt <= balance:
+            balance -= amt
+        else:
+            print("Insufficient Funds")
+
+    elif choice == 4:
+        break
+
