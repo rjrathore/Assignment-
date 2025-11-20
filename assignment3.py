@@ -27,12 +27,12 @@ def signup():
     users = load_data(USER_FILE)
     username = input("Enter new username: ")
     if username in users:
-        print("❌ Username already exists! Try login instead.")
+        print("Username already exists! Try login instead.")
         return None
     password = input("Enter password: ")
     users[username] = password
     save_data(USER_FILE, users)
-    print("✅ Signup successful! Please login now.")
+    print("Signup successful! Please login now.")
     return None
 
 def login():
@@ -41,10 +41,10 @@ def login():
     password = input("Enter password: ")
 
     if username in users and users[username] == password:
-        print(f"\n✅ Welcome {username}!\n")
+        print(f"\nWelcome {username}!\n")
         return username
     else:
-        print("❌ Invalid username or password.")
+        print("Invalid username or password.")
         return None
 
 # -------------------- Coding Questions (30) --------------------
@@ -95,7 +95,7 @@ def show_leaderboard():
         return
 
     sorted_lb = sorted(leaderboard.items(), key=lambda x: x[1], reverse=True)
-    print("\n🏆 Leaderboard - Top Performers 🏆")
+    print("\nLeaderboard - Top Performers ")
     print("-----------------------------------")
     for i, (user, score) in enumerate(sorted_lb[:10], start=1):
         print(f"{i}. {user} - {score}/30")
@@ -103,7 +103,7 @@ def show_leaderboard():
 
 # -------------------- Quiz Function --------------------
 def start_quiz(username):
-    print("\n🎯 Starting your coding quiz...\n")
+    print("\n Starting your coding quiz...\n")
     random.shuffle(questions)
     score = 0
 
@@ -114,10 +114,10 @@ def start_quiz(username):
         try:
             ans = int(input("Enter your answer (1-4): "))
             if q["options"][ans - 1] == q["answer"]:
-                print("✅ Correct!\n")
+                print(" Correct!\n")
                 score += 1
             else:
-                print(f"❌ Wrong! Correct answer: {q['answer']}\n")
+                print(f" Wrong! Correct answer: {q['answer']}\n")
         except:
             print("Invalid input! Skipping question.\n")
 
@@ -126,15 +126,15 @@ def start_quiz(username):
     update_leaderboard(username, score)
 
     if percent >= 80:
-        print("🎉 Excellent Work!")
+        print(" Excellent Work!")
     elif percent >= 50:
-        print("👍 Good Effort, keep practicing!")
+        print(" Good Effort, keep practicing!")
     else:
-        print("😅 Needs improvement, study more coding concepts!")
+        print(" Needs improvement, study more coding concepts!")
 
 # -------------------- Main Program --------------------
 def main():
-    print("=== 🔥 Coding Quiz Application ===")
+    print("===  Coding Quiz Application ===")
     while True:
         print("\n1. Login")
         print("2. Signup")
@@ -151,7 +151,7 @@ def main():
         elif ch == "3":
             show_leaderboard()
         elif ch == "4":
-            print("👋 Thank you for using Coding Quiz App!")
+            print(" Thank you for using Coding Quiz App!")
             break
         else:
             print("Invalid choice, try again!")
@@ -159,3 +159,4 @@ def main():
 # -------------------- Correct main entry point --------------------
 if __name__ == "__main__":
     main()
+
